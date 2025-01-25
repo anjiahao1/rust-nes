@@ -16,13 +16,13 @@ pub struct Rom {
 impl Rom {
     pub fn new(raw: &Vec<u8>) -> Result<Self, String> {
         if raw[0..4] != NES_MAGIC {
-            return Err("Invalid NES magic number")
+            return Err("Invalid NES magic number".to_owned())
         }
 
         let mapper = (raw[6] & 0xf0) | (raw[7] >> 4);
         let ines_version = raw[7] & 0x0f;
         if ines_version != 0 {
-            return Err("Only iNES version 0 is supported")
+            return Err("Only iNES version 0 is supported".to_owned())
         }
 
         let four_screen = raw[6] & 0x08 != 0;
