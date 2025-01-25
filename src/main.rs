@@ -1,5 +1,7 @@
 pub mod cpu;
 pub mod opcode;
+pub mod bus;
+pub mod rom;
 use cpu::Mem;
 use cpu::CPU;
 use rand::Rng;
